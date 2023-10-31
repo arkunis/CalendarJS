@@ -2,7 +2,10 @@
     {
         "title": "Projet JS",
         "start": "2023-10-30",
-        "end": "2023-11-04"
+        "end": "2023-11-04",
+        "extendedProps": {
+            "tous": true
+          }
     },
     {
         "title": "Calandar JS",
@@ -10,7 +13,8 @@
         "end": "2023-11-04",
         "color": "green",
         "extendedProps": {
-            "description": "Personnes participante : Damien, Zacharie, Tayfun"
+            "description": "Personnes participante : Damien, Zacharie, Tayfun",
+            "tous": false
           }
     },
     {

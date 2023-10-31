@@ -17,10 +17,20 @@ document.addEventListener('DOMContentLoaded', function () {
         navLinks: true, // can click day/week names to navigate views
         selectable: true,
         selectMirror: true,
-        eventClick: function GetInfoCard(info) {
+        eventClick: async function GetInfoCard(info) {
             var eventObj = info.event;
-            if(!eventObj.extendedProps.description == ""){
-            alert(eventObj.extendedProps.description);
+            if (eventObj.extendedProps.tous === true) {
+                // alert(eventObj.extendedProps.description);
+                const reponse = await fetch("_json/data.json");
+                const InfoPerso = await reponse.json();
+                document.getElementById('CarteInfo').innerHTML = "";
+                for (let i = 0; i < InfoPerso.length; i++) {
+                    // calendar.addEvent({ id: "InfoPerso", title: `Anniv. ${InfoPerso[i].nom} ${InfoPerso[i].prenom}`, start: `${Annee}-${InfoPerso[i].anniv}`, color: 'purple' });
+                    const InfoPersoCarte = document.getElementById('CarteInfo');
+                    const InfoPersoDoc = document.createElement('article');
+                    InfoPersoDoc.innerHTML = `<p>${InfoPerso[i].prenom}</p>`;
+                    InfoPersoCarte.appendChild(InfoPersoDoc);
+                }
             }
         },
         // select: function (arg) {
@@ -66,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const reponse = await fetch("_json/data.json");
         const InfoPerso = await reponse.json();
         for (let i = 0; i < InfoPerso.length; i++) {
-            calendar.addEvent({ id: "InfoPerso", title: `Anniv. ${InfoPerso[i].nom} ${InfoPerso[i].prenom}`, start: `${Annee}-${InfoPerso[i].anniv}`, color: 'purple' });
+            calendar.addEvent({title: `Anniv. ${InfoPerso[i].nom} ${InfoPerso[i].prenom}`, start: `${Annee}-${InfoPerso[i].anniv}`, color: 'purple' });
 
         }
     }
