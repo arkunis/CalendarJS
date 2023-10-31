@@ -1,12 +1,66 @@
 [    {
-    "title": "Event 1",
-    "start": "2023-11-05",
+    "title": "Jour de l'an",
+    "start": "2023-01-01",
     "color": "#f50202",
     "display": "background"
   },
   {
-    "title": "Férier",
+    "title": "Lundi de Pâques",
+    "start": "2023-04-21",
+    "color": "#f50202",
+    "display": "background"
+},
+  {
+    "title": "Fête du Travail",
+    "start": "2023-05-01",
+    "color": "#f50202",
+    "display": "background"
+},
+  {
+    "title": "Victoire des alliés",
+    "start": "2023-05-08",
+    "color": "#f50202",
+    "display": "background"
+},
+  {
+    "title": "Ascension",
+    "start": "2023-05-29",
+    "color": "#f50202",
+    "display": "background"
+},
+  {
+    "title": "Lundi de Pentecôte",
+    "start": "2023-06-09",
+    "color": "#f50202",
+    "display": "background"
+},
+  {
+    "title": "Fête Nationale",
+    "start": "2023-07-14",
+    "color": "#f50202",
+    "display": "background"
+},
+  {
+    "title": "Assomption",
+    "start": "2023-08-15",
+    "color": "#f50202",
+    "display": "background"
+},
+  {
+    "title": "Toussaint",
     "start": "2023-11-01",
+    "color": "#f50202",
+    "display": "background"
+},
+  {
+    "title": "Armistice",
+    "start": "2023-11-11",
+    "color": "#f50202",
+    "display": "background"
+},
+  {
+    "title": "Noël",
+    "start": "2023-12-25",
     "color": "#f50202",
     "display": "background"
 }
