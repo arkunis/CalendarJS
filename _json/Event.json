@@ -5,25 +5,13 @@
         "end": "2023-11-04"
     },
     {
-        "groupId": 1,
         "title": "Calandar JS",
         "start": "2023-10-31",
         "end": "2023-11-04",
-        "color": "green"
-    },
-    {
-        "groupId": 1,
-        "title": "Maginot",
-        "start": "2023-10-31",
-        "end": "2023-11-04",
-        "color": "green"
-    },
-    {
-        "groupId": 1,
-        "title": "Zimmer",
-        "start": "2023-10-31",
-        "end": "2023-11-04",
-        "color": "green"
+        "color": "green",
+        "extendedProps": {
+            "description": "Personnes participante : Damien, Zacharie, Tayfun"
+          }
     },
     {
         "title": "Début formation DWWM",

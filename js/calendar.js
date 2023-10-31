@@ -17,6 +17,12 @@ document.addEventListener('DOMContentLoaded', function () {
         navLinks: true, // can click day/week names to navigate views
         selectable: true,
         selectMirror: true,
+        eventClick: function GetInfoCard(info) {
+            var eventObj = info.event;
+            if(!eventObj.extendedProps.description == ""){
+            alert(eventObj.extendedProps.description);
+            }
+        },
         // select: function (arg) {
         //     var title = prompt('Titre de l\'évènement:');
         //     if (title) {
@@ -35,7 +41,6 @@ document.addEventListener('DOMContentLoaded', function () {
         //     }
         // },
         editable: true,
-        dayMaxEvents: true, // allow "more" link when too many events
     });
 
     EventJourF();
@@ -43,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const reponse = await fetch("_json/JourFerier.json");
         const JourF = await reponse.json();
         for (let i = 0; i < JourF.length; i++) {
-            calendar.addEvent({title: JourF[i].title, start: `${Annee}-${JourF[i].start}`, color: JourF[i].color, display: JourF[i].display});
+            calendar.addEvent({ title: JourF[i].title, start: `${Annee}-${JourF[i].start}`, color: JourF[i].color, display: JourF[i].display });
         }
     }
 
@@ -61,24 +66,11 @@ document.addEventListener('DOMContentLoaded', function () {
         const reponse = await fetch("_json/data.json");
         const InfoPerso = await reponse.json();
         for (let i = 0; i < InfoPerso.length; i++) {
-            calendar.addEvent({id: "InfoPerso", title: `Anniv. ${InfoPerso[i].nom} ${InfoPerso[i].prenom}`, start: `${Annee}-${InfoPerso[i].anniv}`, color:'purple'});
-            // document.getElementById('InfoPerso').addEventListener('click', ()=>{GetInfoCard(i);});
+            calendar.addEvent({ id: "InfoPerso", title: `Anniv. ${InfoPerso[i].nom} ${InfoPerso[i].prenom}`, start: `${Annee}-${InfoPerso[i].anniv}`, color: 'purple' });
+
         }
     }
     calendar.render();
     calendar.setOption('locale', 'fr');
 
- async function GetInfoCard(index){
-    let i = index;
-        const reponse = await fetch("_json/data.json");
-        const InfoPerso = await reponse.json();
-        document.getElementById('CarteInfo').innerHTML = "";
-
-        const ArticleCard = document.getElementById('CarteInfo');
-        const ArticleCardCreat = document.createElement('article');
-        ArticleCardCreat.classList.add('w-full');
-        ArticleCardCreat.innerHTML = `<p>${InfoPerso[i].prenom}</p>`;
-        ArticleCard.appendChild(ArticleCardCreat);
-        console.log(ArticleCard);
-    }
 });
