@@ -39,27 +39,46 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     EventJourF();
-    async function EventJourF(){
+    async function EventJourF() {
         const reponse = await fetch("_json/JourFerier.json");
         const JourF = await reponse.json();
-        console.log(JourF);
-    for (let i=0; i<JourF.length; i++){
-        calendar.addEvent(JourF[i]);
-        console.log(JourF[i]);
+        for (let i = 0; i < JourF.length; i++) {
+            calendar.addEvent({title: JourF[i].title, start: `${Annee}-${JourF[i].start}`, color: JourF[i].color, display: JourF[i].display});
+        }
     }
-}
 
     EventNormal();
-    async function EventNormal(){
+    async function EventNormal() {
         const reponse = await fetch("_json/Event.json");
         const EventNormal = await reponse.json();
-        console.log(EventNormal);
-    for (let i=0; i<EventNormal.length; i++){
-        calendar.addEvent(EventNormal[i]);
-        console.log(EventNormal[i]);
+        for (let i = 0; i < EventNormal.length; i++) {
+            calendar.addEvent(EventNormal[i]);
+        }
     }
-    
+
+    InfoPerso();
+    async function InfoPerso() {
+        const reponse = await fetch("_json/data.json");
+        const InfoPerso = await reponse.json();
+        for (let i = 0; i < InfoPerso.length; i++) {
+            calendar.addEvent({id: "InfoPerso", title: `Anniv. ${InfoPerso[i].nom} ${InfoPerso[i].prenom}`, start: `${Annee}-${InfoPerso[i].anniv}`, color:'purple'});
+            // document.getElementById('InfoPerso').addEventListener('click', ()=>{GetInfoCard(i);});
+        }
     }
     calendar.render();
     calendar.setOption('locale', 'fr');
+
+ async function GetInfoCard(index){
+    let i = index;
+        const reponse = await fetch("_json/data.json");
+        const InfoPerso = await reponse.json();
+        document.getElementById('CarteInfo').innerHTML = "";
+
+        const ArticleCard = document.getElementById('CarteInfo');
+        const ArticleCardCreat = document.createElement('article');
+        ArticleCardCreat.classList.add('w-full');
+        ArticleCardCreat.innerHTML = `<p>${InfoPerso[i].prenom}</p>`;
+        ArticleCard.appendChild(ArticleCardCreat);
+        console.log(ArticleCard);
+    }
 });

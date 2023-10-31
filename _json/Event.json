@@ -3,5 +3,53 @@
         "title": "Projet JS",
         "start": "2023-10-30",
         "end": "2023-11-04"
+    },
+    {
+        "groupId": 1,
+        "title": "Calandar JS",
+        "start": "2023-10-31",
+        "end": "2023-11-04",
+        "color": "green"
+    },
+    {
+        "groupId": 1,
+        "title": "Maginot",
+        "start": "2023-10-31",
+        "end": "2023-11-04",
+        "color": "green"
+    },
+    {
+        "groupId": 1,
+        "title": "Zimmer",
+        "start": "2023-10-31",
+        "end": "2023-11-04",
+        "color": "green"
+    },
+    {
+        "title": "Début formation DWWM",
+        "start": "2023-09-07",
+        "color": "pink",
+        "textColor": "black"
+    },
+    {
+        "title": "Fin formation DWWM",
+        "start": "2024-05-17",
+        "color": "pink",
+        "textColor": "black"
+    },
+    {
+        "title": "Arrivée formateur jérôme",
+        "start": "2023-10-23",
+        "color": "#29AB70",
+        "textColor": "black"
+    },
+    {
+        "title": "Stage DWWM",
+        "start": "2024-02-22",
+        "end": "2024-05-03",
+        "color": "#FAC863",
+        "textColor": "black",
+        "allDay": true
     }
+    
 ]
