@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     function animate() {
         carte3D.forEach(({ scene, renderer, camera, cylinder }) => {
-            cylinder.rotation.x += 0.01;
+            cylinder.rotation.x += 0.00;
             cylinder.rotation.y += 0.01;
             renderer.render(scene, camera);
         });
