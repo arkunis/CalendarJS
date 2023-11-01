@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const options = {
                     placement: 'center',
                     backdrop: 'dynamic',
-                    backdropClasses: 'bg-gray-900 bg-opacity-50 bg-opacity-80 fixed inset-0 z-40',
+                    backdropClasses: 'bg-gray-700 bg-opacity-50 bg-opacity-80 fixed inset-0 z-40',
                     closable: true,
                     onHide: () => {
                     
