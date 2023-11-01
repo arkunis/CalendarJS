@@ -40,12 +40,12 @@ document.addEventListener('DOMContentLoaded', async function () {
             const renderer = new THREE.WebGLRenderer()
             const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
 
-            const geometry = new THREE.CylinderGeometry(5, 5, 20, 32)
+            const geometry = new THREE.CylinderGeometry(20, 0, 15, 12)
             const material = new THREE.MeshBasicMaterial({ color: 0x00FF00, wireframe: true })
             const cylinder = new THREE.Mesh(geometry, material)
 
             scene.add(cylinder)
-            camera.position.z = 20
+            camera.position.z = 50
             Genre.appendChild(renderer.domElement)
 
             carte3D.push({ scene, renderer, camera, cylinder });
@@ -54,12 +54,12 @@ document.addEventListener('DOMContentLoaded', async function () {
             const renderer = new THREE.WebGLRenderer()
             const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
 
-            const geometry = new THREE.CylinderGeometry(5, 5, 20, 32)
+            const geometry = new THREE.CylinderGeometry(20, 0, 15, 12)
             const material = new THREE.MeshBasicMaterial({ color: 0xEAD1DC, wireframe: true })
             const cylinder = new THREE.Mesh(geometry, material)
 
             scene.add(cylinder)
-            camera.position.z = 20
+            camera.position.z = 50
             Genre.appendChild(renderer.domElement)
 
             carte3D.push({ scene, renderer, camera, cylinder });
