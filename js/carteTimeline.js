@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         // Triez en fonction de l'option sélectionnée
         InfoPerso.sort((a, b) => {
-                return a.anniv.localeCompare(b.anniv);
+                return b.anniv.localeCompare(a.anniv);
         });
 
     document.getElementById('timeline').innerHTML = "";
