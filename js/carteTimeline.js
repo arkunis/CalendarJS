@@ -1,8 +1,19 @@
 document.addEventListener('DOMContentLoaded', async function () {
     let Genre;
 
+    const carte3D = [];
+
     const reponse = await fetch("_json/data.json");
     const InfoPerso = await reponse.json();
+
+        // Obtenez la valeur actuellement sélectionnée
+    
+
+        // Triez en fonction de l'option sélectionnée
+        InfoPerso.sort((a, b) => {
+                return a.anniv.localeCompare(b.anniv);
+        });
+
     document.getElementById('timeline').innerHTML = "";
 
     for (i = 0; i < InfoPerso.length; i++) {
@@ -16,34 +27,52 @@ document.addEventListener('DOMContentLoaded', async function () {
                 <div class="cd-timeline__content text-component">
                   <h2>Annivairsaire</h2>
                   <p class="flex flex-col">${InfoPerso[i].nom} ${InfoPerso[i].prenom}</p> 
-                  <p class="" id="Genre">Genre : ${InfoPerso[i].genre}</p>
+                  <p class="" id="Genre-${i}">Genre : ${InfoPerso[i].genre}</p>
                   <div class="flex justify-between items-center">
                     <span class="cd-timeline__date text-white">${InfoPerso[i].anniv}</span>
                   </div>
                 </div>`;
         TimeLine.appendChild(carte);
-        Genre = document.getElementById('Genre');
+        Genre = document.getElementById('Genre-' + i);
 
+        if (InfoPerso[i].genre == "H") {
+            const scene = new THREE.Scene()
+            const renderer = new THREE.WebGLRenderer()
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
 
-        const scene = new THREE.Scene()
-        const renderer = new THREE.WebGLRenderer()
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
+            const geometry = new THREE.CylinderGeometry(5, 5, 20, 32)
+            const material = new THREE.MeshBasicMaterial({ color: 0x00FF00, wireframe: true })
+            const cylinder = new THREE.Mesh(geometry, material)
 
-        const geometry = new THREE.CylinderGeometry(5, 5, 20, 32)
-        const material = new THREE.MeshBasicMaterial({ color: 0xff0000, wireframe: true })
-        const cylinder = new THREE.Mesh(geometry, material)
+            scene.add(cylinder)
+            camera.position.z = 20
+            Genre.appendChild(renderer.domElement)
 
-        scene.add(cylinder)
-        camera.position.z = 20
+            carte3D.push({ scene, renderer, camera, cylinder });
+        }else{
+            const scene = new THREE.Scene()
+            const renderer = new THREE.WebGLRenderer()
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
 
-        Genre.appendChild(renderer.domElement)
+            const geometry = new THREE.CylinderGeometry(5, 5, 20, 32)
+            const material = new THREE.MeshBasicMaterial({ color: 0xEAD1DC, wireframe: true })
+            const cylinder = new THREE.Mesh(geometry, material)
 
-        function animate() {
-            cylinder.rotation.x += 0.01
-            cylinder.rotation.y += 0.01
-            renderer.render(scene, camera)
-            requestAnimationFrame(animate)
+            scene.add(cylinder)
+            camera.position.z = 20
+            Genre.appendChild(renderer.domElement)
+
+            carte3D.push({ scene, renderer, camera, cylinder });
         }
-        animate()
     }
+
+    function animate() {
+        carte3D.forEach(({ scene, renderer, camera, cylinder }) => {
+            cylinder.rotation.x += 0.01;
+            cylinder.rotation.y += 0.01;
+            renderer.render(scene, camera);
+        });
+        requestAnimationFrame(animate);
+    }
+    animate()
 });
