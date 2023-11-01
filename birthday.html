@@ -7,17 +7,19 @@
     <title>Document</title>
     <!-- CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/Timeline.css">
 
     <!-- Script -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
+    <script src="js/carteTimeline.js"></script>
+        <!-- ThreeJS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r122/three.min.js"></script>
 </head>
 
 <body>
+
     <header>
-        <nav class="border-gray-200 bg-gray-900 z-10">
+        <nav class="border-gray-200 bg-gray-900">
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                 <a href="#" class="flex items-center">
                     <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">Kal-Handar</span>
@@ -55,11 +57,18 @@
         </nav>
     </header>
 
-    <main class="w-[100%] h-screen">
-        <div id="map" class="w-full h-full"></div>
+    <main class="w-[100%] mx-auto bg-[#537291] p-3">
+
+        <section class="js-cd-timeline">
+            <div class="container max-width-lg cd-timeline__container" id="timeline">
+
+            </div>
+          </section> <!-- cd-timeline -->
+          <script src="js/TimeLine.js"></script>
+
     </main>
+
     <!-- FlowBite -->
-    <script src="js/map.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.js"></script>
 </body>
 

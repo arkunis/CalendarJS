@@ -6,7 +6,9 @@ document.addEventListener('DOMContentLoaded', function () {
     let Mois = MaDate.getMonth();
     Mois = Mois + 1;
     let Annee = MaDate.getFullYear();
-
+    if (Jour < 10) {
+        Jour = "0" + Jour;
+    }
     var calendar = new FullCalendar.Calendar(calendarEl, {
         headerToolbar: {
             left: 'prev,next today',
@@ -20,17 +22,75 @@ document.addEventListener('DOMContentLoaded', function () {
         eventClick: async function GetInfoCard(info) {
             var eventObj = info.event;
             if (eventObj.extendedProps.tous === true) {
-                // alert(eventObj.extendedProps.description);
+
+                const targetEl = document.getElementById('default-modal');
+
+                // options with default values
+                const options = {
+                    placement: 'center',
+                    backdrop: 'dynamic',
+                    backdropClasses: 'bg-gray-900 bg-opacity-50 bg-opacity-80 fixed inset-0 z-40',
+                    closable: true,
+                    onHide: () => {
+                    
+                    },
+                    onShow: () => {
+                   
+                    },
+                    onToggle: () => {
+
+                    }
+                };
+                const modal = new Modal(targetEl, options);
                 const reponse = await fetch("_json/data.json");
                 const InfoPerso = await reponse.json();
-                document.getElementById('CarteInfo').innerHTML = "";
+                document.getElementById('title').innerHTML = "";
+                document.getElementById('participant').innerHTML = "";
                 for (let i = 0; i < InfoPerso.length; i++) {
-                    // calendar.addEvent({ id: "InfoPerso", title: `Anniv. ${InfoPerso[i].nom} ${InfoPerso[i].prenom}`, start: `${Annee}-${InfoPerso[i].anniv}`, color: 'purple' });
-                    const InfoPersoCarte = document.getElementById('CarteInfo');
+                    document.getElementById('title').innerHTML ="Les participants";
+                    const InfoPersoCarte = document.getElementById('participant');
                     const InfoPersoDoc = document.createElement('article');
-                    InfoPersoDoc.innerHTML = `<p>${InfoPerso[i].prenom}</p>`;
+                    InfoPersoDoc.innerHTML = `${InfoPerso[i].prenom}`;
                     InfoPersoCarte.appendChild(InfoPersoDoc);
                 }
+                document.getElementById('fermer').addEventListener('click', () => { modal.hide() });
+                document.getElementById('fermer1').addEventListener('click', () => { modal.hide() });
+                modal.show();
+            }else if(eventObj.extendedProps.tous === false) {
+
+                const targetEl = document.getElementById('default-modal');
+
+                // options with default values
+                const options = {
+                    placement: 'center',
+                    backdrop: 'dynamic',
+                    backdropClasses: 'bg-gray-900 bg-opacity-50 bg-opacity-80 fixed inset-0 z-40',
+                    closable: true,
+                    onHide: () => {
+                    
+                    },
+                    onShow: () => {
+                   
+                    },
+                    onToggle: () => {
+
+                    }
+                };
+                const modal = new Modal(targetEl, options);
+                const reponse = await fetch("_json/data.json");
+                const InfoPerso = await reponse.json();
+                document.getElementById('title').innerHTML = "";
+                document.getElementById('participant').innerHTML = "";
+           
+                    document.getElementById('title').innerHTML ="Les participants";
+                    const InfoPersoCarte = document.getElementById('participant');
+                    const InfoPersoDoc = document.createElement('article');
+                    InfoPersoDoc.innerHTML = `${eventObj.extendedProps.description}`;
+                    InfoPersoCarte.appendChild(InfoPersoDoc);
+                
+                document.getElementById('fermer').addEventListener('click', () => { modal.hide() });
+                document.getElementById('fermer1').addEventListener('click', () => { modal.hide() });
+                modal.show();
             }
         },
         // select: function (arg) {
@@ -76,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const reponse = await fetch("_json/data.json");
         const InfoPerso = await reponse.json();
         for (let i = 0; i < InfoPerso.length; i++) {
-            calendar.addEvent({title: `Anniv. ${InfoPerso[i].nom} ${InfoPerso[i].prenom}`, start: `${Annee}-${InfoPerso[i].anniv}`, color: 'purple' });
+            calendar.addEvent({ title: `Anniv. ${InfoPerso[i].nom} ${InfoPerso[i].prenom}`, start: `${Annee}-${InfoPerso[i].anniv}`, color: 'purple' });
 
         }
     }
