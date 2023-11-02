@@ -26,7 +26,7 @@
     {
         "nom": "Zimmer",
         "prenom": "Zacharie",
-        "anniv": "",
+        "anniv": "07-24",
         "genre": "H"
     },
     {
@@ -66,9 +66,9 @@
         "genre": "F"
     },
     {
-        "nom": "",
+        "nom": "Jeangeorges",
         "prenom": "Nicolas",
-        "anniv": "",
+        "anniv": "02-27",
         "genre": "H"
     },
     {
@@ -78,9 +78,9 @@
         "genre": "F"
     },
     {
-        "nom": "",
+        "nom": "Brastel",
         "prenom": "Jason",
-        "anniv": "",
+        "anniv": "10-30",
         "genre": "H"
     },
     {

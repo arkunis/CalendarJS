@@ -15,6 +15,12 @@ document.addEventListener('DOMContentLoaded', function () {
             center: 'title',
             right: 'dayGridMonth,timeGridWeek,timeGridDay'
         },
+        buttonText: {
+            today: 'Aujourd\'hui',
+            month: 'Mois',
+            week: 'Semaine',
+            day: 'Jour'
+        },
         initialDate: '' + Annee + '-' + Mois + '-' + Jour + '',
         navLinks: true, // can click day/week names to navigate views
         selectable: true,
