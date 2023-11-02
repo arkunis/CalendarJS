@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                 </div>
         
                 <div class="cd-timeline__content text-component">
-                  <h2>Annivairsaire</h2>
+                  <h2>Anniversaire</h2>
                   <p class="flex flex-col">${InfoPerso[i].nom} ${InfoPerso[i].prenom}</p> 
                   <p class="" id="Genre-${i}">Genre : ${InfoPerso[i].genre}</p>
                   <div class="flex justify-between items-center">
