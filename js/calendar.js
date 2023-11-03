@@ -13,7 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
         headerToolbar: {
             left: 'prev,next today',
             center: 'title',
-            right: 'dayGridMonth,timeGridWeek,timeGridDay'
+            right: ''
+            //dayGridMonth,timeGridWeek,timeGridDay
         },
         buttonText: {
             today: 'Aujourd\'hui',
@@ -22,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
             day: 'Jour'
         },
         initialDate: '' + Annee + '-' + Mois + '-' + Jour + '',
-        navLinks: true, // can click day/week names to navigate views
+        navLinks: false, // can click day/week names to navigate views
         selectable: true,
         selectMirror: true,
         eventClick: async function GetInfoCard(info) {
