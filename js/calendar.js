@@ -59,9 +59,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     InfoPersoDoc.innerHTML = `${InfoPerso[i].prenom}`;
                     InfoPersoCarte.appendChild(InfoPersoDoc);
                 }
+                modal.show();
                 document.getElementById('fermer').addEventListener('click', () => { modal.hide() });
                 document.getElementById('fermer1').addEventListener('click', () => { modal.hide() });
-                modal.show();
+               
             }else if(eventObj.extendedProps.tous === false) {
 
                 const targetEl = document.getElementById('default-modal');
@@ -70,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const options = {
                     placement: 'center',
                     backdrop: 'dynamic',
-                    backdropClasses: 'bg-gray-900 bg-opacity-50 bg-opacity-80 fixed inset-0 z-40',
+                    backdropClasses: 'bg-gray-700 bg-opacity-50 bg-opacity-80 fixed inset-0 z-40',
                     closable: true,
                     onHide: () => {
                     
@@ -93,10 +94,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     const InfoPersoDoc = document.createElement('article');
                     InfoPersoDoc.innerHTML = `${eventObj.extendedProps.description}`;
                     InfoPersoCarte.appendChild(InfoPersoDoc);
-                
+                    modal.show();
                 document.getElementById('fermer').addEventListener('click', () => { modal.hide() });
                 document.getElementById('fermer1').addEventListener('click', () => { modal.hide() });
-                modal.show();
+                
             }
         },
         // select: function (arg) {
